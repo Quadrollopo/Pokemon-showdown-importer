@@ -47,10 +47,9 @@ namespace PokemonShowdownImporter {
 		}
 		
 		public static string ReadSaveFile(string path) {
-			byte[] blocks = File.ReadAllBytes(path);
 			string outputText = "";
 			BinaryReader binaryReader = new BinaryReader(File.Open(path, FileMode.Open, FileAccess.Read));
-			//int p = binaryReader.Read(b, 1, 9);
+			byte[] blocks = binaryReader.ReadBytes(0x624);
 			int partyNum = blocks[0x94];
 			for (int n = 0; n < partyNum; n++) {
 				int pokemonOffset = 0x98 + n * 236;
