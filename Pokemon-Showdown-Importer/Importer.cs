@@ -50,6 +50,7 @@ namespace PokemonShowdownImporter {
 			string outputText = "";
 			BinaryReader binaryReader = new BinaryReader(File.Open(path, FileMode.Open, FileAccess.Read));
 			byte[] blocks = binaryReader.ReadBytes(0x624);
+			binaryReader.Close();
 			int partyNum = blocks[0x94];
 			if (partyNum < 1 || partyNum > 6) {
 				throw new FormatException("The party number is wrong, are you sure you imported a save file?");
