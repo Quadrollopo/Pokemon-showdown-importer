@@ -15,7 +15,7 @@ namespace PokemonShowdownImporter {
 			}
 			OpenFileDialog dialog = new OpenFileDialog();
 			dialog.Filter =
-				@"Sav files | *.sav| Dsv files | *.dsv| All files (*.*)|*.*";
+				@"Save files |*.sav; *.dsv; *.bin| All files (*.*)|*.*";
 			dialog.Multiselect = false; 
 			if (dialog.ShowDialog() == DialogResult.OK) // if user clicked OK
 			{
