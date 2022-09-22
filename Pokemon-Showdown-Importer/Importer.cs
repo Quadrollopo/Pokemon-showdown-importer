@@ -52,9 +52,9 @@ namespace PokemonShowdownImporter {
 			byte[] blocks = binaryReader.ReadBytes(0x630);
 			binaryReader.Close();
 			int pokemonDataOffset;
-			int teamSize = blocks[0x94];
+			uint teamSize = BitConverter.ToUInt32(blocks, 0x94);
 			if (teamSize < 1 || teamSize > 6) {
-				teamSize = blocks[0x9C];
+				teamSize = BitConverter.ToUInt32(blocks, 0x9C);
 				if (teamSize < 1 || teamSize > 6) {
 					throw new FormatException("The team size is wrong, are you sure you imported a save file?");
 				}
