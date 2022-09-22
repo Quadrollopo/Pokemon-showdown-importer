@@ -49,14 +49,22 @@ namespace PokemonShowdownImporter {
 		public static string ReadSaveFile(string path) {
 			string outputText = "";
 			BinaryReader binaryReader = new BinaryReader(File.Open(path, FileMode.Open, FileAccess.Read));
-			byte[] blocks = binaryReader.ReadBytes(0x624);
+			byte[] blocks = binaryReader.ReadBytes(0x630);
 			binaryReader.Close();
-			int partyNum = blocks[0x94];
-			if (partyNum < 1 || partyNum > 6) {
-				throw new FormatException("The party number is wrong, are you sure you imported a save file?");
+			int pokemonDataOffset;
+			int teamSize = blocks[0x94];
+			if (teamSize < 1 || teamSize > 6) {
+				teamSize = blocks[0x9C];
+				if (teamSize < 1 || teamSize > 6) {
+					throw new FormatException("The team size is wrong, are you sure you imported a save file?");
+				}
+				pokemonDataOffset = 0xA0;
 			}
-			for (int n = 0; n < partyNum; n++) {
-				int pokemonOffset = 0x98 + n * 236;
+			else
+				pokemonDataOffset = 0x98;
+			
+			for (int n = 0; n < teamSize; n++) {
+				int pokemonOffset = pokemonDataOffset + n * 236;
 				uint pv = BitConverter.ToUInt32(blocks, pokemonOffset);
 				ushort checksum = BitConverter.ToUInt16(blocks, pokemonOffset + 6);
 				Decrypter decrypter = new Decrypter(checksum);
