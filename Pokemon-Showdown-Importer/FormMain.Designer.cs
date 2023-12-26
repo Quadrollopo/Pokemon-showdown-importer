@@ -58,6 +58,7 @@
 			// 
 			// copyButton
 			// 
+			this.copyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.copyButton.Location = new System.Drawing.Point(425, 12);
 			this.copyButton.Name = "copyButton";
 			this.copyButton.Size = new System.Drawing.Size(63, 38);
@@ -69,6 +70,7 @@
 			// 
 			// notify
 			// 
+			this.notify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.notify.BackColor = System.Drawing.SystemColors.Control;
 			this.notify.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.notify.Location = new System.Drawing.Point(425, 56);
@@ -90,12 +92,14 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(525, 338);
 			this.Controls.Add(this.notify);
 			this.Controls.Add(this.copyButton);
 			this.Controls.Add(this.richTextBox1);
 			this.Controls.Add(this.importButton);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Location = new System.Drawing.Point(15, 15);
 			this.Name = "FormMain";
 			this.Text = "Pokemon showdown importer";
 			((System.ComponentModel.ISupportInitialize)(this.timer1)).EndInit();
