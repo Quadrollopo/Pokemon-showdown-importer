@@ -144,12 +144,12 @@ namespace PokemonShowdownImporter {
 				
 				//endregion
 				if (isNicknamed)
-					outputText += $"{nickname} ({Data.pokedex[pkmn_id]}) ";
+					outputText += $"{nickname} ({Data.pokedex[pkmn_id]})";
 				else
 					outputText += Data.pokedex[pkmn_id];
 
 				if (item != 0)
-					outputText += "@ " + Data.items[item];
+					outputText += " @ " + Data.items[item];
 				outputText += '\n';
 				outputText += $"Level: {level}\n";
 				outputText += $"Ability: {Data.abilities[ability]}\n";
